@@ -1,0 +1,86 @@
+.add-run {
+  position: relative;
+}
+
+.add-btn {
+  align-items: center;
+  background-color: color(yellow);
+  color: color(clay);
+  display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  opacity: 0.5;
+  padding: units(1) units(2);
+  transition: opacity timing();
+
+  svg {
+    width: 15px;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 2px;
+    margin-right: units(1);
+    transition: transform timing();
+  }
+
+  @include hover {
+    opacity: 1;
+    outline: none;
+    box-shadow: 0 0 20px #222;
+
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+// .add-dialog {
+//   position: absolute;
+//   top: 0;
+//   left: 100%;
+//   margin-left: units(3);
+//   // width: 100px;
+//   height: 100%;
+//   background-color: color(darkClay);
+//   padding: units(1);
+//   display: flex;
+//   align-items: center;
+//   color: #fff;
+
+//   &::before {
+//     @include pseudo;
+//     top: 50%;
+//     right: 100%;
+//     transform: translate3d(0, -50%, 0);
+//     width: 0;
+//     height: 0;
+//     border-style: solid;
+//     border-width: units(1) units(2) units(1) 0;
+//     border-color: transparent color(darkClay) transparent transparent;
+//   }
+
+//   input {
+//     margin: 0 units(1);
+//     width: 45px;
+//     height: 100%;
+//     background: none;
+//     border: none;
+//     font-size: 24px;
+//     padding: units(0.5);
+//     // border-bottom: 2px solid rgba(#fff, 0.2);
+//     color: #fff;
+//     font-family: inherit;
+
+//     &:focus {
+//       // border-bottom: 2px solid #fff;
+//       outline: none;
+
+//       @include placeholder {
+//         color: transparent;
+//       }
+//     }
+
+//     @include placeholder {
+//       color: rgba(#fff, 0.2);
+//     }
+//   }
+// }

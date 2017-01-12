@@ -1,0 +1,13 @@
+.header {
+  position: absolute;
+  top: units(1);
+  right: units(1);
+
+}
+
+.sprite.-logo {
+  svg {
+    width: 80px;
+    color: color(turquoise);
+  }
+}

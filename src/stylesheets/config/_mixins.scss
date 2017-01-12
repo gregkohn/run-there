@@ -1,0 +1,48 @@
+@mixin hover {
+  &:hover,
+  &:focus {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &:input-placeholder {
+    @content;
+  }
+}
+
+@mixin pseudo($display: block, $position: absolute) {
+  content: '';
+  display: $display;
+  position: $position;
+}
+
+@mixin inviz {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin viz {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin transitionViz($timing: timing()) {
+  transition: opacity $timing, visibility $timing;
+}

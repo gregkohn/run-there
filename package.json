@@ -1,0 +1,10 @@
+{
+  "name": "vacay-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Greg Kohn",
+  "license": "MIT",
+  "dependencies": {
+    "blendid": "^4.0.0-blendid-beta-16"
+  }
+}
