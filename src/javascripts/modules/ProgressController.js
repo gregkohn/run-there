@@ -9,6 +9,7 @@ export default class ProgressController {
     this.goalRow  = document.querySelector('.card-row.-miles')
     this.daysRow  = document.querySelector('.card-row.-days')
     this.paceRow  = document.querySelector('.card-row.-pace')
+    this.otherRow = document.querySelector('.card-row.-other')
 
     this.goalProgressRing     = this.goalRow.querySelector('.card-progress__completed svg')
     this.goalProgressDisplay  = this.goalRow.querySelectorAll('.card__body')[0]
@@ -24,6 +25,8 @@ export default class ProgressController {
     this.paceIconDisplay      = this.paceRow.querySelector('.card-icon svg use')
     this.paceGoodIcon         = 'check'
     this.paceBadIcon          = 'cross'
+
+    this.totalWorkoutsDisplay = this.otherRow.querySelector('.card__body')
 
     this.mapStateDisplay      = document.querySelector('.map__current-state__name')
     this.mapStateIcon         = document.querySelector('.map__current-state__icon svg use')
@@ -74,7 +77,7 @@ export default class ProgressController {
 
     //Temporary progress stats
     this.goalTotal = 161
-    this.workouts  = [2.4, 1.75]
+    this.workouts  = [2.4, 1.75, 1.55]
     this.startDate = '2017-1-10'
     this.endDate   = '2017-5-21'
   }
@@ -82,7 +85,8 @@ export default class ProgressController {
   calculateProgress() {
     this.calculateGoalProgress()
     this.calculateDayProgress()
-    this.calculatePaceProgres()
+    this.calculatePaceProgress()
+    this.calculateOtherProgress()
     this.calculateMapProgress()
   }
 
@@ -104,7 +108,7 @@ export default class ProgressController {
     this.daysProgress    = this.daysTotal - this.daysRemaining
   }
 
-  calculatePaceProgres() {
+  calculatePaceProgress() {
     this.actualPace   = Math.round(this.goalProgress / this.daysProgress * 100) / 100
     this.requiredPace = Math.round(this.goalTotal / this.daysTotal * 100) / 100
 
@@ -114,6 +118,10 @@ export default class ProgressController {
     } else {
       this.paceIcon = this.paceBadIcon
     }
+  }
+
+  calculateOtherProgress() {
+    this.totalWorkouts = this.workouts.length
   }
 
   calculateMapProgress() {
@@ -133,13 +141,13 @@ export default class ProgressController {
 
     // Calculate dash offset for path
     this.routeDashOffset = this.routeDashArray - (this.routeDashArray * progress)
-    console.log(this.routeDashOffset)
   }
 
   loadProgress() {
     this.loadGoalProgress()
     this.loadDaysProgress()
     this.loadPaceProgress()
+    this.loadOtherProgress()
     this.loadMapProgress()
   }
 
@@ -161,16 +169,20 @@ export default class ProgressController {
     this.requiredPaceDisplay.innerHTML = this.requiredPace
   }
 
+  loadOtherProgress() {
+    this.totalWorkoutsDisplay.innerHTML = this.totalWorkouts
+  }
+
   loadMapProgress() {
     this.mapStateIcon.setAttribute('xlink:href','images/icons.svg#' + this.currentState)
     this.mapStateDisplay.innerHTML = this.currentState
-    this.mapRoute.style.strokeDashoffset = this.routeDashOffset
+    setTimeout(() => {
+      this.mapRoute.style.strokeDashoffset = this.routeDashOffset
+    }, 500)
   }
 
   setProgressRing(progress, el) {
     let dashOffset = this.radialDashArray - (progress * this.radialDashArray)
     el.setAttribute('stroke-dashoffset', dashOffset)
   }
-
-
 }

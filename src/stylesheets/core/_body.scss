@@ -5,3 +5,8 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+//Eliminate outline for mouse users
+html[data-whatinput="mouse"] *:focus {
+  outline: none;
+}

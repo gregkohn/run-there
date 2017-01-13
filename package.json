@@ -5,6 +5,7 @@
   "author": "Greg Kohn",
   "license": "MIT",
   "dependencies": {
-    "blendid": "^4.0.0-blendid-beta-16"
+    "blendid": "^4.0.0-blendid-beta-16",
+    "what-input": "^4.0.4"
   }
 }

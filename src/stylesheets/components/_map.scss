@@ -79,7 +79,7 @@
     stroke: color(pink);
     stroke-dasharray: 807;
     stroke-dashoffset: 807;
-    // animation: dash 5s linear forwards;
+    transition: stroke-dashoffset 3s;
   }
 }
 
