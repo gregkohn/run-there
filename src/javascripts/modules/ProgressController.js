@@ -1,8 +1,11 @@
+import Database   from './Database'
+import AddWorkout from './AddWorkout'
+
 export default class ProgressController {
   constructor() {
     this.variables()
-    this.calculateProgress()
-    this.loadProgress()
+    this.update()
+    this.listen()
   }
 
   variables() {
@@ -77,9 +80,23 @@ export default class ProgressController {
 
     //Temporary progress stats
     this.goalTotal = 161
-    this.workouts  = [2.4, 1.75, 1.55]
     this.startDate = '2017-1-10'
     this.endDate   = '2017-5-21'
+  }
+
+  listen() {
+    document.addEventListener('workoutAdded', this.update.bind(this))
+  }
+
+  update() {
+    this.updateVariables()
+    this.calculateProgress()
+    this.loadProgress()
+  }
+
+  updateVariables() {
+    // Progress stats
+    this.workouts  = Database.loadWorkouts()
   }
 
   calculateProgress() {
@@ -93,7 +110,7 @@ export default class ProgressController {
   calculateGoalProgress() {
     let progress = 0
     this.workouts.forEach((num) => {
-      progress += num
+      progress += parseFloat(num)
     })
     this.goalProgress  = Math.round(progress * 100) / 100
     this.goalRemaining = Math.round((this.goalTotal - this.goalProgress) * 100) / 100

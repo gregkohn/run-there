@@ -1,5 +1,10 @@
 .cards {
   padding-left: units(3);
+  transition: filter timing();
+
+  .-modal-is-active & {
+    // filter: blur(2px);
+  }
 }
 
 .card-row {

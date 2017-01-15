@@ -49,6 +49,6 @@
   visibility: visible;
 }
 
-@mixin transitionViz($timing: timing()) {
-  transition: opacity $timing, visibility $timing;
+@mixin transitionViz($timing: timing(), $delay: 0s) {
+  transition: opacity $timing $delay, visibility $timing $delay;
 }

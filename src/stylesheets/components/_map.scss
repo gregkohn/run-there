@@ -5,12 +5,18 @@
   justify-content: center;
   position: relative;
   padding-top: 100px;
+  transition: filter timing();
+
+  .-modal-is-active & {
+    // filter: blur(2px);
+  }
 }
 
 .map__bg {
   svg {
     position: absolute;
     top: 0;
+    pointer-events: none;
     right: 0;
     width: 800px;
   }
