@@ -22,6 +22,10 @@ export default {
     this.save(this.workoutsKey, workouts)
   },
 
+  saveWorkouts(workouts) {
+    this.save(this.workoutsKey, workouts)
+  },
+
   loadWorkouts() {
     let workouts = this.load(this.workoutsKey)
     if (workouts == null) {

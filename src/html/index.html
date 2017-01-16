@@ -61,10 +61,18 @@
           <h2 class="card__title">runs total</h2>
         </div>
 
-        <div class="add-run" data-module="AddWorkout">
-          <button class="button add-btn">
-            {{ sprite('plus') }} add a run
-          </button>
+        <div class="manage-run">
+          <div class="add-run" data-module="AddWorkout">
+            <button class="button -animate">
+              {{ sprite('plus') }} add a run
+            </button>
+          </div>
+
+          <div class="edit-runs" data-module="EditWorkouts">
+            <button class="button">
+              {{ sprite('hamburger') }} see runs
+            </button>
+          </div>
         </div>
 
         {#
@@ -102,14 +110,20 @@
     <div class="modal-container">
       <div class="modal-close"></div>
       <div class="modal-dialog">
-        <div class="modal-dialog__title">New run</div>
+        <h2 class="modal-dialog__title">all runs</h2>
 
         <div class="modal-dialog__form">
           <input type="text" id="add-workout">
           <label for="add-workout">miles</label>
+          <div class="modal-dialog__errors">asdf</div>
           <div class="modal-dialog__submit">
             <button class="button">submit</button>
           </div>
+        </div>
+
+        <div class="modal-dialog__all-workouts">
+          <ul>
+          </ul>
         </div>
       </div>
     </div>

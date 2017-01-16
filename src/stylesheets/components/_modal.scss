@@ -16,6 +16,16 @@
     @include viz;
     @include transitionViz;
   }
+
+  &.-is-invalid {
+    .modal-dialog {
+      animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    .modal-dialog__errors {
+      @include viz;
+    }
+  }
 }
 
 .modal-close {
@@ -30,7 +40,7 @@
 .modal-dialog {
   @include inviz;
   background-color: color(clay);
-  // box-shadow: 0 0 20px #252525;
+  min-width: 300px;
   padding: units(4) units(10);
   position: relative;
   transform: translate3d(0, -20px, 0);
@@ -54,6 +64,7 @@
 
 .modal-dialog__form {
   color: rgba(#fff, 0.8);
+  display: none;
   margin-top: units(3);
 
   input {
@@ -69,10 +80,52 @@
   }
 }
 
+.modal-dialog__errors {
+  @include inviz;
+  @include transitionViz;
+  color: color(pink);
+  margin-top: units(2);
+  text-align: center;
+  height: units(2);
+}
+
 .modal-dialog__submit {
-  margin-top: units(5);
+  margin-top: units(2);
   text-align: center;
 
   button {
+  }
+}
+
+.modal-dialog__all-workouts {
+  display: none;
+  margin-top: units(3);
+
+  ul {
+    max-width: 800px;
+  }
+
+  li {
+    color: #fff;
+    display: flex;
+    display: inline-block;
+    font-size: 20px;
+    margin-right: units(2);
+
+    svg {
+      fill: #fff;
+      opacity: 0.2;
+      position: relative;
+      top: 2px;
+      width: 18px;
+
+      @include hover {
+        opacity: 1;
+      }
+    }
+
+    .workout-num {
+
+    }
   }
 }

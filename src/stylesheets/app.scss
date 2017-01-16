@@ -15,14 +15,15 @@
 @import 'core/lists';
 @import 'core/typography';
 
+@import 'utilities/animations';
 @import 'utilities/colors';
 @import 'utilities/containers';
 @import 'utilities/screenreader';
 
-@import 'components/add';
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/header';
+@import 'components/manage';
 @import 'components/map';
 @import 'components/modal';
 @import 'components/structure';

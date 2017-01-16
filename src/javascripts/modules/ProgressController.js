@@ -85,7 +85,7 @@ export default class ProgressController {
   }
 
   listen() {
-    document.addEventListener('workoutAdded', this.update.bind(this))
+    document.addEventListener('workoutsChanged', this.update.bind(this))
   }
 
   update() {
